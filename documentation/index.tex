@@ -1,0 +1,134 @@
+\documentclass[oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+%
+\usepackage{lmodern}
+\usepackage{microtype}
+%
+\usepackage{graphicx}
+\usepackage[colorlinks]{hyperref}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+
+\input{common}
+
+\SetOrganization{Primordial Machine's}
+\SetLibraryName{Range Library}
+\SetLibraryVersion{v1.0}
+\SetLibraryRepository{https://github.com/primordialmachine/range}
+\SetAuthor{Michael Heilmann}
+\SetEmail{michaelheilmann@primordialmachine.com}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Synopsis}
+\textit{\GetOrganization{} \GetLibraryName} is a C++ 17 library providing ranges.
+The library is made available publicly on
+\href{\GetLibraryRepository}{Github}
+under the
+\href{\GetLibraryRepository/blob/master/LICENSE}{MIT License}.
+
+\section{Limitations and Restrictions}
+The library officially only supports Visual Studio 2017 and Windows 10.
+
+\section{Introductory example}
+Examples are located in the \href{\GetLibraryRepository/blob/master/examples}{examples} directory.
+
+\section{Building under Visual Studio 2017}
+\begin{enumerate}
+\item Open the solution \texttt{range.sln} in Microsoft Visual Studio 2017.
+\item Batch build everything.
+\item The folder \texttt{packages} contains the distribution of the library i.e. include files and the
+      static libraries for
+  \begin{enumerate}
+    \item the platforms \texttt{Win32} and \texttt{x64} and
+    \item configurations \texttt{Release} and \texttt{Debug}.
+  \end{enumerate}
+\item Copy the contents of the \verb+packages+ folder into a directory. Let
+      \verb+[library home]+ be a placeholder denoting the path by which that folder
+      can be referenced from your project.
+\item Add
+  \begin{enumerate}
+    \item the include path
+\begin{verbatim}
+[library home]/primordialmachine/range/
+$(Platform.toLower())/$(Configuration.toLower())/includes
+\end{verbatim}
+	and
+    \item the library path
+\begin{verbatim}
+[library home]/primordialmachine/range/
+$(Platform.toLower())/$(Configuration.toLower())/libraries
+\end{verbatim}
+    to your project.
+\end{enumerate}
+\item Link your project with the library \verb+range.lib+.
+\item Add the include directive \verb+#include "primordialmachine/range/include.hpp"+ where appropriate.
+\item You can now use the functionality provided by the library.
+\end{enumerate}
+
+\section{Example}
+The following example creates a \verb+iterator_range+ from the iterators returned by the
+\verb+cbegin+ and \verb+cend+ functions of a \verb+std::vector<int>+.
+\begin{verbatim}
+#include "primordialmachine/range/include.hpp"
+#include <vector>
+#include <stdlib.h>
+
+int main(int argc, char **argv) {
+  using namespace primordialmachine;
+  using namespace std;
+  static const vector<int> primes = { 3, 5, 7 };
+  auto primes_range = iterator_range(primes.cbegin(), primes.cend());
+  for (auto it = primes_range.begin(); it != primes_range.end(); ++it) {
+	std::cout << (*it) << std::endl;
+  }
+  foreach (auto value : primes_range) {
+    std::cout << value << std::endl;
+  }
+  return EXIT_SUCCESS;
+}
+\end{verbatim}
+
+
+\section{Library Interface Documentation}
+
+\subsection{\texttt{namespace primordialmachine}}
+The namespace this library is adding its declarations/definitions to.
+The added namespace elements are documented below.
+
+\subsection{\texttt{template<typename ITERATOR> class iterator\_range}}
+\texttt{iterator\_range} is a generic range over two iterators.
+It has a single template parameter \texttt{typename ITERATOR} denoting the type of the     iterator(s)
+which must be an \href{https://en.cppreference.com/w/cpp/named_req/InputIterator}{InputIterator} type.
+\texttt{iterator\_range} is \textit{Assignable} and \textit{Copyable}. The class provides         the
+following members.
+
+\subsubsection{\texttt{using iterator\_type}}
+\texttt{iterator\_range} provides the member type definition \texttt{iterator\_type} which is an alias
+for \texttt{ITERATOR}.
+
+\subsubsection{\texttt{iterator\_range()}}
+default
+constructs this \texttt{iterator\_range} object with
+the value \texttt{iterator\_type()} as the iterator value to the start of the range and
+the value \texttt{iterator\_type()} as the iterator value to the end of the range.
+
+\subsubsection{\texttt{iterator\_range(iterator\_type begin, iterator\_type end)}}
+constructs this \texttt{iterator\_range} object with
+`begin` as the iterator to the start of the range and
+`end` as iterator to the the end of the range.
+Consequently, \texttt{begin() == begin}, \texttt{end() == end} all hold true.
+
+\subsubsection{\texttt{iterator\_type begin() const}}
+Get the iterator to the beginning of the range.
+
+\subsubsection{\texttt{iterator\_type end() const}}
+Get the iterator to the end of the range.
+
+\subsubsection{\texttt{bool empty() const}}
+Get if the range is empty.
+Return \verb+true+ if the range is empty and \verb+false+ otherwise.
+
+\end{document}
