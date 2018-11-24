@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Primordial Machine's Range Library
+// Primordial Machine's Ranges Library
 // Copyright (C) 2017-2018 Michael Heilmann
 //
 // This software is provided 'as-is', without any express or implied warranty.
@@ -25,7 +25,7 @@
 
 #pragma once
 
-#include "primordialmachine/range/_range.hpp"
+#include "primordialmachine/ranges/_range.hpp"
 
 namespace primordialmachine {
 

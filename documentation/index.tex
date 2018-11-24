@@ -13,9 +13,9 @@
 \input{common}
 
 \SetOrganization{Primordial Machine's}
-\SetLibraryName{Range Library}
+\SetLibraryName{Ranges Library}
 \SetLibraryVersion{v1.0}
-\SetLibraryRepository{https://github.com/primordialmachine/range}
+\SetLibraryRepository{https://github.com/primordialmachine/ranges}
 \SetAuthor{Michael Heilmann}
 \SetEmail{michaelheilmann@primordialmachine.com}
 
@@ -52,19 +52,19 @@ Examples are located in the \href{\GetLibraryRepository/blob/master/examples}{ex
   \begin{enumerate}
     \item the include path
 \begin{verbatim}
-[library home]/primordialmachine/range/
+[library home]/primordialmachine/ranges/
 $(Platform.toLower())/$(Configuration.toLower())/includes
 \end{verbatim}
 	and
     \item the library path
 \begin{verbatim}
-[library home]/primordialmachine/range/
+[library home]/primordialmachine/ranges/
 $(Platform.toLower())/$(Configuration.toLower())/libraries
 \end{verbatim}
     to your project.
 \end{enumerate}
-\item Link your project with the library \verb+range.lib+.
-\item Add the include directive \verb+#include "primordialmachine/range/include.hpp"+ where appropriate.
+\item Link your project with the library \verb+ranges.lib+.
+\item Add the include directive \verb+#include "primordialmachine/ranges/include.hpp"+ where appropriate.
 \item You can now use the functionality provided by the library.
 \end{enumerate}
 
@@ -72,7 +72,7 @@ $(Platform.toLower())/$(Configuration.toLower())/libraries
 The following example creates a \verb+iterator_range+ from the iterators returned by the
 \verb+cbegin+ and \verb+cend+ functions of a \verb+std::vector<int>+.
 \begin{verbatim}
-#include "primordialmachine/range/include.hpp"
+#include "primordialmachine/ranges/include.hpp"
 #include <vector>
 #include <stdlib.h>
 

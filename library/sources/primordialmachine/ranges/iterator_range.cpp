@@ -23,12 +23,4 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#pragma once
-
-namespace primordialmachine::detail {
-
-/// @brief Base of all ranges.
-struct range
-{}; // struct range
-
-} // namespace primordialmachine::detail
+#include "primordialmachine/ranges/iterator_range.hpp"

@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Primordial Machine's Range Library
+// Primordial Machine's Ranges Library
 // Copyright (C) 2017-2018 Michael Heilmann
 //
 // This software is provided 'as-is', without any express or implied warranty.
@@ -23,4 +23,12 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "primordialmachine/range/iterator_range.hpp"
+#pragma once
+
+namespace primordialmachine::detail {
+
+/// @brief Base of all ranges.
+struct range
+{}; // struct range
+
+} // namespace primordialmachine::detail

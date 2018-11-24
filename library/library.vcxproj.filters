@@ -11,25 +11,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="includes\primordialmachine\range\_range.hpp">
+    <ClInclude Include="includes\primordialmachine\ranges\iterator_range.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="includes\primordialmachine\range\iterator_range.hpp">
+    <ClInclude Include="includes\primordialmachine\ranges\include.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="includes\primordialmachine\range\include.hpp">
+    <ClInclude Include="includes\primordialmachine\ranges\_range.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sources\primordialmachine\range\_range.cpp">
+    <ClCompile Include="sources\primordialmachine\ranges\_range.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="sources\primordialmachine\range\iterator_range.cpp">
+    <ClCompile Include="sources\primordialmachine\ranges\iterator_range.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\primordialmachine%40bitbucket.com\primordialmachine-range\libraries\package.props" />
+    <None Include="package.props" />
   </ItemGroup>
 </Project>
