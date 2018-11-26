@@ -14,7 +14,7 @@
 
 \SetOrganization{Primordial Machine's}
 \SetLibraryName{Ranges Library}
-\SetLibraryVersion{v1.0}
+\SetLibraryVersion{v1.2}
 \SetLibraryRepository{https://github.com/primordialmachine/ranges}
 \SetAuthor{Michael Heilmann}
 \SetEmail{michaelheilmann@primordialmachine.com}
@@ -79,13 +79,14 @@ The following example creates a \verb+iterator_range+ from the iterators returne
 int main(int argc, char **argv) {
   using namespace primordialmachine;
   using namespace std;
-  static const vector<int> primes = { 3, 5, 7 };
-  auto primes_range = iterator_range(primes.cbegin(), primes.cend());
-  for (auto it = primes_range.begin(); it != primes_range.end(); ++it) {
-	std::cout << (*it) << std::endl;
+  using collection_type = vector<int>;
+  static const auto collection = collection_type{ 3, 5, 7 };
+  auto range = iterator_range<collection_type::const_iterator>(primes.cbegin(), primes.cend());
+  for (auto iterator = range.begin(); iterator != range.end(); ++iterator) {
+    std::cout << (*iterator) << std::endl;
   }
-  foreach (auto value : primes_range) {
-    std::cout << value << std::endl;
+  for(const auto& element : range) {
+    std::cout << element << std::endl;
   }
   return EXIT_SUCCESS;
 }

@@ -1,4 +1,4 @@
-# Primordial Machine's Range Library
+# Primordial Machine's Ranges Library
 C++ 17 library providing ranges. 
 The library is made available publicly on [GitHub](https://github.com/primordialmachine/ranges) under the [MIT License](https://github.com/primordialmachine/ranges/blob/master/LICENSE).
 
